@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Essential for making the site look good on all devices, especially mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechGear Pro - Home</title>
+    <!-- Load Tailwind CSS for beautiful, responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load jQuery for advanced effects and simpler DOM manipulation -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- Custom Configuration for Tailwind and overall site look -->
+    <style>
+        /* Setting the primary fonts and background for a consistent look */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* Dark Gray/Black Background */
+            color: #E5E7EB; /* Light Gray Text */
+        }
+        /* Custom scrollbar styling to match the dark theme */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-thumb { background: #374151; border-radius: 4px; }
+        ::-webkit-scrollbar-track { background: #1F2937; }
+        /* A subtle animation for product cards on hover */
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        /* New style to highlight the currently active page link */
+        .active-nav {
+            color: #9CA3AF; /* Gray-400 for active link */
+            border-bottom: 2px solid #6B7280; /* Gray-500 underline */
+            padding-bottom: 4px;
+        }
+    </style>
+    
+    <!-- We're using the Inter font for a modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="min-h-screen">
+
+    <!-- 
+        =======================================================
+        GLOBAL HEADER - Identical on all pages
+        =======================================================
+    -->
+    <header class="sticky top-0 z-50 bg-gray-900 shadow-xl border-b border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo/Branding -->
+                <a href="index.html" class="text-3xl font-bold text-white hover:text-gray-400 transition duration-300 logo-link">
+                    TechGear <span class="text-gray-500">Pro</span>
+                </a>
+                
+                <!-- Main Navigation - Updated to use proper file links -->
+                <nav id="main-nav" class="space-x-8 hidden sm:flex">
+                    <a href="index.html" class="nav-link text-white hover:text-gray-400 font-semibold transition duration-200" data-page="index">Home</a>
+                    <a href="products.html" class="nav-link text-white hover:text-gray-400 font-semibold transition duration-200" data-page="products">Products</a>
+                    <a href="contact.html" class="nav-link text-white hover:text-gray-400 font-semibold transition duration-200" data-page="contact">Contact</a>
+                </nav>
+
+                <!-- Mobile Menu Button (Hamburger) -->
+                <button id="mobile-menu-btn" class="sm:hidden p-2 rounded-md hover:bg-gray-800 text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu Dropdown (Initially hidden) -->
+        <div id="mobile-menu" class="hidden sm:hidden border-t border-gray-700">
+            <a href="index.html" class="block py-3 px-4 text-white hover:bg-gray-800 nav-link" data-page="index">Home</a>
+            <a href="products.html" class="block py-3 px-4 text-white hover:bg-gray-800 nav-link" data-page="products">Products</a>
+            <a href="contact.html" class="block py-3 px-4 text-white hover:bg-gray-800 nav-link" data-page="contact">Contact</a>
+        </div>
+    </header>
+
+    <!-- 
+        =======================================================
+        HOME PAGE CONTENT (index.html)
+        =======================================================
+    -->
+    <main class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+        <section id="home-page" class="page-content">
+            <!-- Hero Section -->
+            <div class="relative bg-gray-800 p-12 rounded-xl shadow-2xl overflow-hidden mb-12 border border-gray-700">
+                <div class="max-w-4xl mx-auto text-center py-16">
+                    <!-- JQUERY EFFECT 1: This text will fade in smoothly on load (handled by home.js) -->
+                    <h1 class="hero-title text-5xl sm:text-6xl font-extrabold text-white mb-4 opacity-0">
+                        Gear Up Your Success.
+                    </h1>
+                    <p class="hero-subtitle text-xl text-gray-400 mb-8 opacity-0">
+                        Explore the latest in performance computing, from custom PCs to cutting-edge peripherals.
+                    </p>
+                    <a href="products.html" class="nav-link inline-block bg-gray-700 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:bg-gray-600 transition duration-300 transform hover:scale-105 opacity-0">
+                        Shop Now
+                    </a>
+                </div>
+            </div>
+
+            <!-- Featured Categories Section -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-6 bg-gray-800 rounded-lg border border-gray-700 text-center transform hover:scale-[1.02] transition duration-300">
+                    <h3 class="text-2xl font-semibold mb-3 text-white">Laptops</h3>
+                    <p class="text-gray-400">Portable power for work and play.</p>
+                </div>
+                <div class="p-6 bg-gray-800 rounded-lg border border-gray-700 text-center transform hover:scale-[1.02] transition duration-300">
+                    <h3 class="text-2xl font-semibold mb-3 text-white">Components</h3>
+                    <p class="text-gray-400">Build your dream machine.</p>
+                </div>
+                <div class="p-6 bg-gray-800 rounded-lg border border-gray-700 text-center transform hover:scale-[1.02] transition duration-300">
+                    <h3 class="text-2xl font-semibold mb-3 text-white">Monitors</h3>
+                    <p class="text-gray-400">Stunning visuals, high refresh rates.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 
+        =======================================================
+        GLOBAL FOOTER - Identical on all pages
+        =======================================================
+    -->
+    <footer class="bg-gray-900 border-t border-gray-700 mt-12 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:flex sm:justify-between sm:items-center">
+            
+            <!-- Copyright Information -->
+            <p class="text-gray-500 text-sm mb-4 sm:mb-0">
+                &copy; <span id="current-year"></span> TechGear Pro. All rights reserved.
+            </p>
+
+            <!-- Quick Links -->
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="text-gray-400 hover:text-gray-100 transition duration-200">Privacy Policy</a>
+                <a href="#" class="text-gray-400 hover:text-gray-100 transition duration-200">Terms of Service</a>
+            </div>
+
+        </div>
+    </footer>
+
+
+    <!-- 
+        =======================================================
+        JAVASCRIPT LINKS - External files loaded here
+        =======================================================
+    -->
+    <!-- Common functionality (year, mobile menu, active nav) -->
+    <script src="/assets/js/common.js"></script>
+    <!-- Home page specific effects (Hero fade-in) -->
+    <script src="/assets/js/home.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Essential for making the site look good on all devices, especially mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechGear Pro - Products</title>
+    <!-- Load Tailwind CSS for beautiful, responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load jQuery for advanced effects and simpler DOM manipulation -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- Custom Configuration for Tailwind and overall site look -->
+    <style>
+        /* Setting the primary fonts and background for a consistent look */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* Dark Gray/Black Background */
+            color: #E5E7EB; /* Light Gray Text */
+        }
+        /* Custom scrollbar styling to match the dark theme */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-thumb { background: #374151; border-radius: 4px; }
+        ::-webkit-scrollbar-track { background: #1F2937; }
+        /* A subtle animation for product cards on hover */
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        /* New style to highlight the currently active page link */
+        .active-nav {
+            color: #9CA3AF; /* Gray-400 for active link */
+            border-bottom: 2px solid #6B7280; /* Gray-500 underline */
+            padding-bottom: 4px;
+        }
+    </style>
+    
+    <!-- We're using the Inter font for a modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="min-h-screen">
+
+    <!-- 
+        =======================================================
+        GLOBAL HEADER - Identical on all pages
+        =======================================================
+    -->
+    <header class="sticky top-0 z-50 bg-gray-900 shadow-xl border-b border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo/Branding -->
+                <a href="index.html" class="text-3xl font-bold text-white hover:text-gray-400 transition duration-300 logo-link">
+                    TechGear <span class="text-gray-500">Pro</span>
+                </a>
+                
+                <!-- Main Navigation - Updated to use proper file links -->
+                <nav id="main-nav" class="space-x-8 hidden sm:flex">
+                    <a href="index.html" class="nav-link text-white hover:text-gray-400 font-semibold transition duration-200" data-page="index">Home</a>
+                    <a href="products.html" class="nav-link text-white hover:text-gray-400 font-semibold transition duration-200" data-page="products">Products</a>
+                    <a href="contact.html" class="nav-link text-white hover:text-gray-400 font-semibold transition duration-200" data-page="contact">Contact</a>
+                </nav>
+
+                <!-- Mobile Menu Button (Hamburger) -->
+                <button id="mobile-menu-btn" class="sm:hidden p-2 rounded-md hover:bg-gray-800 text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu Dropdown (Initially hidden) -->
+        <div id="mobile-menu" class="hidden sm:hidden border-t border-gray-700">
+            <a href="index.html" class="block py-3 px-4 text-white hover:bg-gray-800 nav-link" data-page="index">Home</a>
+            <a href="products.html" class="block py-3 px-4 text-white hover:bg-gray-800 nav-link" data-page="products">Products</a>
+            <a href="contact.html" class="block py-3 px-4 text-white hover:bg-gray-800 nav-link" data-page="contact">Contact</a>
+        </div>
+    </header>
+
+    <!-- 
+        =======================================================
+        PRODUCTS PAGE CONTENT (products.html)
+        =======================================================
+    -->
+    <main class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+        <section id="products-page" class="page-content">
+            <h2 class="text-4xl font-bold text-white mb-10 border-b border-gray-700 pb-3">Our Full Catalog</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                
+                <!-- Example Product Card 1: Laptop -->
+                <div class="product-card bg-gray-800 p-4 rounded-xl shadow-lg border border-gray-700 cursor-pointer">
+                    <img src="https://placehold.co/400x300/1F2937/9CA3AF?text=The+Titan" alt="High-End Gaming Laptop" class="rounded-lg mb-4 w-full h-48 object-cover">
+                    <h3 class="text-xl font-semibold text-white truncate">The Titan (RTX 4090)</h3>
+                    <p class="text-gray-400 text-sm mt-1">High-end gaming laptop with unmatched performance.</p>
+                    <div class="flex justify-between items-center mt-4">
+                        <span class="text-2xl font-bold text-gray-100">$2,999</span>
+                        <button class="add-to-cart-btn bg-gray-700 text-white text-sm font-medium py-2 px-4 rounded-full hover:bg-gray-600 transition duration-300">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Example Product Card 2: Monitor -->
+                <div class="product-card bg-gray-800 p-4 rounded-xl shadow-lg border border-gray-700 cursor-pointer">
+                    <img src="https://placehold.co/400x300/1F2937/9CA3AF?text=4K+Ultra-Wide" alt="4K Ultra-Wide Monitor" class="rounded-lg mb-4 w-full h-48 object-cover">
+                    <h3 class="text-xl font-semibold text-white truncate">Ultra-Wide 4K Monitor</h3>
+                    <p class="text-gray-400 text-sm mt-1">Stunning clarity for design and productivity.</p>
+                    <div class="flex justify-between items-center mt-4">
+                        <span class="text-2xl font-bold text-gray-100">$799</span>
+                        <button class="add-to-cart-btn bg-gray-700 text-white text-sm font-medium py-2 px-4 rounded-full hover:bg-gray-600 transition duration-300">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Example Product Card 3: Keyboard -->
+                <div class="product-card bg-gray-800 p-4 rounded-xl shadow-lg border border-gray-700 cursor-pointer">
+                    <img src="https://placehold.co/400x300/1F2937/9CA3AF?text=Mechanical+K-B" alt="Mechanical Keyboard" class="rounded-lg mb-4 w-full h-48 object-cover">
+                    <h3 class="text-xl font-semibold text-white truncate">Clicky Mechanical Keyboard</h3>
+                    <p class="text-gray-400 text-sm mt-1">Tactile feedback for the discerning typist.</p>
+                    <div class="flex justify-between items-center mt-4">
+                        <span class="text-2xl font-bold text-gray-100">$149</span>
+                        <button class="add-to-cart-btn bg-gray-700 text-white text-sm font-medium py-2 px-4 rounded-full hover:bg-gray-600 transition duration-300">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Example Product Card 4: SSD -->
+                <div class="product-card bg-gray-800 p-4 rounded-xl shadow-lg border border-gray-700 cursor-pointer">
+                    <img src="https://placehold.co/400x300/1F2937/9CA3AF?text=4TB+NVMe+SSD" alt="4TB NVMe SSD" class="rounded-lg mb-4 w-full h-48 object-cover">
+                    <h3 class="text-xl font-semibold text-white truncate">4TB NVMe Gen5 SSD</h3>
+                    <p class="text-gray-400 text-sm mt-1">Blazing fast storage for rapid loading.</p>
+                    <div class="flex justify-between items-center mt-4">
+                        <span class="text-2xl font-bold text-gray-100">$349</span>
+                        <button class="add-to-cart-btn bg-gray-700 text-white text-sm font-medium py-2 px-4 rounded-full hover:bg-gray-600 transition duration-300">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- More products would go here... -->
+
+            </div>
+            
+            <!-- Message box for product notifications -->
+            <div id="product-message" class="fixed bottom-20 right-4 p-4 bg-green-700 text-white rounded-lg shadow-xl hidden z-50 transition-opacity duration-500 opacity-0">
+                Item successfully added to cart!
+            </div>
+            
+        </section>
+    </main>
+
+    <!-- 
+        =======================================================
+        GLOBAL FOOTER - Identical on all pages
+        =======================================================
+    -->
+    <footer class="bg-gray-900 border-t border-gray-700 mt-12 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:flex sm:justify-between sm:items-center">
+            
+            <!-- Copyright Information -->
+            <p class="text-gray-500 text-sm mb-4 sm:mb-0">
+                &copy; <span id="current-year"></span> TechGear Pro. All rights reserved.
+            </p>
+
+            <!-- Quick Links -->
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="text-gray-400 hover:text-gray-100 transition duration-200">Privacy Policy</a>
+                <a href="#" class="text-gray-400 hover:text-gray-100 transition duration-200">Terms of Service</a>
+            </div>
+
+        </div>
+    </footer>
+
+
+    <!-- 
+        =======================================================
+        JAVASCRIPT LINKS - External files loaded here
+        =======================================================
+    -->
+    <!-- Common functionality (year, mobile menu, active nav) -->
+    <script src="/assets/js/common.js"></script>
+    <!-- Products page specific effects (Hover, Add to Cart) -->
+    <script src="/assets/js/products.js"></script>
+
+</body>
+</html>
